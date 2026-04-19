@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PC操作指南 — 断箭 BROKEN ARROW</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">BA</div>
+    <span class="nav-logo-text">BROKEN <span>ARROW</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="factions.html">阵营</a></li>
+    <li><a href="units.html">兵种</a></li>
+    <li><a href="controls.html" class="active">操作指南</a></li>
+  </ul>
+  <div class="nav-status">COMBAT SYSTEM ONLINE</div>
+</nav>
+
+<div class="page-content">
+
+  <!-- 页面英雄区 -->
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">首页</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>PC操作指南</span>
+      </div>
+      <div class="section-tag" style="margin-bottom:12px">PC CONTROLS GUIDE</div>
+      <h1 class="section-title" style="font-size:clamp(28px,4vw,52px);margin-bottom:12px">PC 常用操作指南</h1>
+      <p class="section-desc">
+        涵盖鼠标操作、键盘快捷键、单位编组、相机控制与界面操作的完整参考手册。
+        建议新手在游戏前熟悉这些基础操作，掌握操作是发挥战术的前提。
+      </p>
+    </div>
+  </div>
+
+  <section style="padding:48px 0 80px">
+    <div class="container">
+
+      <!-- 快速导航标签 -->
+      <div class="ctrl-nav">
+        <a href="#mouse"    class="ctrl-nav-btn">🖱 鼠标操作</a>
+        <a href="#camera"   class="ctrl-nav-btn">📷 相机控制</a>
+        <a href="#select"   class="ctrl-nav-btn">🎯 单位选择</a>
+        <a href="#orders"   class="ctrl-nav-btn">📋 命令下达</a>
+        <a href="#groups"   class="ctrl-nav-btn">🔢 编组管理</a>
+        <a href="#hotkeys"  class="ctrl-nav-btn">⌨ 功能快捷键</a>
+        <a href="#ui"       class="ctrl-nav-btn">🖥 界面操作</a>
+        <a href="#tips"     class="ctrl-nav-btn">💡 新手提示</a>
+      </div>
+
+      <!-- ===================================================
+           鼠标操作
+           =================================================== -->
+      <div class="ctrl-section" id="mouse">
+        <div class="ctrl-section-header">
+          <span class="ctrl-section-icon">🖱</span>
+          <div>
+            <div class="ctrl-section-title">鼠标操作</div>
+            <div class="ctrl-section-sub">MOUSE CONTROLS</div>
+          </div>
+        </div>
+        <div class="ctrl-grid">
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>左键单击</kbd></div>
+            <div class="ctrl-action">选中单个单位</div>
+            <div class="ctrl-desc">点击地图上的我方单位将其选中，取消之前的所有选择</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>左键框选</kbd></div>
+            <div class="ctrl-action">框选多个单位</div>
+            <div class="ctrl-desc">按住左键拖动，框住区域内的所有我方单位将被同时选中</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>右键单击</kbd></div>
+            <div class="ctrl-action">移动 / 攻击</div>
+            <div class="ctrl-desc">右键点击空地为选中单位下达移动命令；右键点击敌方单位下达攻击命令</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>右键长按拖动</kbd></div>
+            <div class="ctrl-action">设置移动方向</div>
+            <div class="ctrl-desc">移动到目标点时，通过拖动指定单位抵达后的朝向，便于建立防御阵线</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>滚轮滚动</kbd></div>
+            <div class="ctrl-action">缩放地图</div>
+            <div class="ctrl-desc">向上滚动放大视图，向下滚动缩小视图，快速切换战术与战略视野</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>中键按下拖动</kbd></div>
+            <div class="ctrl-action">平移相机</div>
+            <div class="ctrl-desc">按住鼠标中键并拖动，快速移动到地图任意位置，比键盘移动更精准</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>左键双击单位</kbd></div>
+            <div class="ctrl-action">选中同类型全部单位</div>
+            <div class="ctrl-desc">双击一个单位，会自动选中当前屏幕内所有相同类型的己方单位</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>左键双击空地</kbd></div>
+            <div class="ctrl-action">取消所有选择</div>
+            <div class="ctrl-desc">快速取消当前选中状态，避免误操作</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           相机控制
+           =================================================== -->
+      <div class="ctrl-section" id="camera">
+        <div class="ctrl-section-header">
+          <span class="ctrl-section-icon">📷</span>
+          <div>
+            <div class="ctrl-section-title">相机控制</div>
+            <div class="ctrl-section-sub">CAMERA CONTROLS</div>
+          </div>
+        </div>
+        <div class="ctrl-grid">
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></div>
+            <div class="ctrl-action">移动相机</div>
+            <div class="ctrl-desc">经典WASD方式移动相机视角，上下左右平移</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>↑</kbd> <kbd>←</kbd> <kbd>↓</kbd> <kbd>→</kbd></div>
+            <div class="ctrl-action">方向键移动相机</div>
+            <div class="ctrl-desc">方向键同样可以移动相机，与WASD效果相同</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>鼠标移至屏幕边缘</kbd></div>
+            <div class="ctrl-action">边缘滚动相机</div>
+            <div class="ctrl-desc">将鼠标移到屏幕边框附近，相机会自动向该方向平移（需在设置中开启）</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>+</kbd> / <kbd>-</kbd></div>
+            <div class="ctrl-action">键盘缩放</div>
+            <div class="ctrl-desc">使用键盘加减键进行精细的视图缩放控制</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>Backspace</kbd></div>
+            <div class="ctrl-action">相机回到基地</div>
+            <div class="ctrl-desc">快速将相机视角拉回至己方初始部署区域</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>Space</kbd></div>
+            <div class="ctrl-action">相机跳转至选中单位</div>
+            <div class="ctrl-desc">按空格键，相机立即跳转至当前选中单位的位置，快速追踪关键部队</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           单位选择
+           =================================================== -->
+      <div class="ctrl-section" id="select">
+        <div class="ctrl-section-header">
+          <span class="ctrl-section-icon">🎯</span>
+          <div>
+            <div class="ctrl-section-title">单位选择</div>
+            <div class="ctrl-section-sub">UNIT SELECTION</div>
+          </div>
+        </div>
+        <div class="ctrl-grid">
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>Ctrl</kbd> + <kbd>左键</kbd></div>
+            <div class="ctrl-action">追加/移除单位</div>
+            <div class="ctrl-desc">在当前选中基础上追加点击的单位；若该单位已在选中列表中，则将其移除</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>Shift</kbd> + <kbd>左键框选</kbd></div>
+            <div class="ctrl-action">追加框选范围</div>
+            <div class="ctrl-desc">在保留当前选择的同时，将框选区域内的新单位追加进选中列表</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>Ctrl</kbd> + <kbd>A</kbd></div>
+            <div class="ctrl-action">全选屏幕内单位</div>
+            <div class="ctrl-desc">选中当前屏幕视野范围内的所有己方单位，快速集结调度</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>Tab</kbd></div>
+            <div class="ctrl-action">循环切换选中单位</div>
+            <div class="ctrl-desc">在已选中的多个单位之间逐一切换焦点，便于检查每个单位状态</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>Esc</kbd></div>
+            <div class="ctrl-action">取消选择 / 取消命令</div>
+            <div class="ctrl-desc">取消当前所有单位选择，或取消正在执行的待确认命令</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>左键单击空地</kbd></div>
+            <div class="ctrl-action">取消选择</div>
+            <div class="ctrl-desc">点击无单位的空白区域，清除所有选中</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           命令下达
+           =================================================== -->
+      <div class="ctrl-section" id="orders">
+        <div class="ctrl-section-header">
+          <span class="ctrl-section-icon">📋</span>
+          <div>
+            <div class="ctrl-section-title">命令下达</div>
+            <div class="ctrl-section-sub">ORDERS</div>
+          </div>
+        </div>
+        <div class="ctrl-grid">
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>右键</kbd> 点击地面</div>
+            <div class="ctrl-action">移动命令</div>
+            <div class="ctrl-desc">命令选中单位向目标位置移动，系统自动规划最短安全路径</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>右键</kbd> 点击敌方单位</div>
+            <div class="ctrl-action">攻击命令</div>
+            <div class="ctrl-desc">命令选中单位攻击目标，单位将在合适射程内停下并开火</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>Shift</kbd> + <kbd>右键</kbd></div>
+            <div class="ctrl-action">追加路径点</div>
+            <div class="ctrl-desc">为单位添加移动队列中的下一个航点，实现多点路径规划</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>A</kbd> + <kbd>右键</kbd></div>
+            <div class="ctrl-action">攻击移动（A-Move）</div>
+            <div class="ctrl-desc">边移动边自动攻击沿途遭遇的敌方单位，到达目标点前不会忽略威胁</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>S</kbd></div>
+            <div class="ctrl-action">停止</div>
+            <div class="ctrl-desc">命令选中单位立即停止所有移动与攻击动作，保持当前位置</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>H</kbd></div>
+            <div class="ctrl-action">原地驻守</div>
+            <div class="ctrl-desc">单位停在当前位置不主动移动，但仍会自动还击射程内的敌人</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>P</kbd></div>
+            <div class="ctrl-action">巡逻</div>
+            <div class="ctrl-desc">在当前位置与指定目标点之间往返巡逻，遭遇敌人自动攻击</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>D</kbd></div>
+            <div class="ctrl-action">部署/展开</div>
+            <div class="ctrl-desc">命令支援单位（如炮兵）展开并进入战斗准备状态，或命令步兵卧倒隐蔽</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           编组管理
+           =================================================== -->
+      <div class="ctrl-section" id="groups">
+        <div class="ctrl-section-header">
+          <span class="ctrl-section-icon">🔢</span>
+          <div>
+            <div class="ctrl-section-title">编组管理</div>
+            <div class="ctrl-section-sub">GROUP MANAGEMENT</div>
+          </div>
+        </div>
+        <div class="ctrl-grid">
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>Ctrl</kbd> + <kbd>1</kbd> ~ <kbd>0</kbd></div>
+            <div class="ctrl-action">创建编组</div>
+            <div class="ctrl-desc">将当前选中的单位设置为对应数字编组，最多可创建10个编组（0键为第10组）</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>1</kbd> ~ <kbd>0</kbd></div>
+            <div class="ctrl-action">选中编组</div>
+            <div class="ctrl-desc">按下数字键立即选中该编组内的所有单位，无需手动在地图上点击寻找</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys">连按两次 <kbd>1</kbd> ~ <kbd>0</kbd></div>
+            <div class="ctrl-action">相机跳转至编组</div>
+            <div class="ctrl-desc">快速双击数字键，在选中编组的同时将相机视角跳转至该编组位置</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>数字</kbd></div>
+            <div class="ctrl-action">追加到编组</div>
+            <div class="ctrl-desc">将当前选中的单位追加到已存在的编组中，不会清空原有编组成员</div>
+          </div>
+        </div>
+
+        <div class="ctrl-tips-box">
+          <div class="ctrl-tips-title">📌 编组战术建议</div>
+          <ul class="ctrl-tips-list">
+            <li>建议将侦察单位单独编为 <kbd>1</kbd> 号组，始终优先掌握战场视野</li>
+            <li>主战坦克编为 <kbd>2</kbd> 号组，步兵战车编为 <kbd>3</kbd> 号组，实现装甲步兵协同</li>
+            <li>防空单位单独编组，随时可以呼叫拦截突然出现的航空威胁</li>
+            <li>炮兵与后勤编为最后的编组，需要时快速下达支援命令</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           功能快捷键
+           =================================================== -->
+      <div class="ctrl-section" id="hotkeys">
+        <div class="ctrl-section-header">
+          <span class="ctrl-section-icon">⌨</span>
+          <div>
+            <div class="ctrl-section-title">功能快捷键</div>
+            <div class="ctrl-section-sub">FUNCTION HOTKEYS</div>
+          </div>
+        </div>
+
+        <div class="hotkey-table-wrapper">
+          <table class="hotkey-table">
+            <thead>
+              <tr>
+                <th>按键</th>
+                <th>功能</th>
+                <th>说明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><kbd>F1</kbd></td>
+                <td>单位能力 1</td>
+                <td>激活选中单位的第一个特殊能力（冲刺、烟雾弹、部署等）</td>
+              </tr>
+              <tr>
+                <td><kbd>F2</kbd></td>
+                <td>单位能力 2</td>
+                <td>激活选中单位的第二个特殊能力</td>
+              </tr>
+              <tr>
+                <td><kbd>F3</kbd></td>
+                <td>单位能力 3</td>
+                <td>激活选中单位的第三个特殊能力</td>
+              </tr>
+              <tr>
+                <td><kbd>F4</kbd></td>
+                <td>单位能力 4</td>
+                <td>激活选中单位的第四个特殊能力</td>
+              </tr>
+              <tr>
+                <td><kbd>F5</kbd></td>
+                <td>单位能力 5</td>
+                <td>激活选中单位的第五个特殊能力</td>
+              </tr>
+              <tr>
+                <td><kbd>Q</kbd></td>
+                <td>切换开火规则</td>
+                <td>在「自由开火」「仅还击」「保持戒备」之间循环切换</td>
+              </tr>
+              <tr>
+                <td><kbd>E</kbd></td>
+                <td>上下车 / 搭乘</td>
+                <td>命令步兵上车搭乘选中载具，或下令车载步兵下车</td>
+              </tr>
+              <tr>
+                <td><kbd>R</kbd></td>
+                <td>撤退</td>
+                <td>单位以最快速度向己方出生区方向撤退，忽略沿途敌人</td>
+              </tr>
+              <tr>
+                <td><kbd>T</kbd></td>
+                <td>强制攻击</td>
+                <td>激活强制攻击模式，点击任意目标（包括友军）实施攻击</td>
+              </tr>
+              <tr>
+                <td><kbd>Y</kbd></td>
+                <td>切换攻击优先级</td>
+                <td>在攻击最近目标 / 攻击最危险目标之间切换</td>
+              </tr>
+              <tr>
+                <td><kbd>Z</kbd></td>
+                <td>呼叫支援单位</td>
+                <td>打开可用增援单位面板，选择并呼入增援</td>
+              </tr>
+              <tr>
+                <td><kbd>X</kbd></td>
+                <td>标记地图目标</td>
+                <td>在鼠标位置放置战术标记，提示队友关注该区域</td>
+              </tr>
+              <tr>
+                <td><kbd>Delete</kbd></td>
+                <td>解散 / 击沉单位</td>
+                <td>主动移除选中单位（主要用于清除无用后勤车辆，回收点数）</td>
+              </tr>
+              <tr>
+                <td><kbd>Pause / Break</kbd></td>
+                <td>暂停游戏</td>
+                <td>在单人战役或自定义游戏中暂停，多人模式下无效</td>
+              </tr>
+              <tr>
+                <td><kbd>+</kbd> / <kbd>-</kbd>（小键盘）</td>
+                <td>加速 / 减速</td>
+                <td>在单人模式中调整游戏速度，最高4倍速（多人模式无效）</td>
+              </tr>
+              <tr>
+                <td><kbd>M</kbd></td>
+                <td>打开/关闭迷你地图</td>
+                <td>切换右下角迷你地图的显示或隐藏</td>
+              </tr>
+              <tr>
+                <td><kbd>N</kbd></td>
+                <td>切换单位名称显示</td>
+                <td>在地图上显示或隐藏所有单位的名称标签</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           界面操作
+           =================================================== -->
+      <div class="ctrl-section" id="ui">
+        <div class="ctrl-section-header">
+          <span class="ctrl-section-icon">🖥</span>
+          <div>
+            <div class="ctrl-section-title">界面操作</div>
+            <div class="ctrl-section-sub">UI OPERATIONS</div>
+          </div>
+        </div>
+        <div class="ctrl-grid ctrl-grid-2">
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>Tab</kbd>（聊天框外）</div>
+            <div class="ctrl-action">打开聊天框</div>
+            <div class="ctrl-desc">多人游戏中向队友发送战术信息或作战指令</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys"><kbd>Enter</kbd></div>
+            <div class="ctrl-action">发送聊天</div>
+            <div class="ctrl-desc">在聊天框输入完毕后按Enter发送，再按一次Enter可快速打开聊天框</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys">点击 <span class="ui-btn">增援面板</span></div>
+            <div class="ctrl-action">呼叫增援单位</div>
+            <div class="ctrl-desc">从右侧甲板面板选择并点击单位图标，在地图上点击部署位置即可呼入</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys">点击 <span class="ui-btn">单位信息卡</span></div>
+            <div class="ctrl-action">查看单位详情</div>
+            <div class="ctrl-desc">选中单位后，底部信息栏显示生命值、弹药量、移速与当前任务状态</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys">右键 <span class="ui-btn">单位信息卡</span></div>
+            <div class="ctrl-action">快速下达命令</div>
+            <div class="ctrl-desc">在底部单位信息卡上右键，弹出可用命令列表，适合精细操作</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys">拖动 <span class="ui-btn">迷你地图</span></div>
+            <div class="ctrl-action">快速移动相机</div>
+            <div class="ctrl-desc">直接在迷你地图上点击或拖动，相机立即跳转至对应战场位置</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys">点击 <span class="ui-btn">弹药条</span></div>
+            <div class="ctrl-action">查看弹药状态</div>
+            <div class="ctrl-desc">单位信息栏的弹药条变红时表示弹药不足，需优先安排后勤补给</div>
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-keys">点击 <span class="ui-btn">血条颜色</span></div>
+            <div class="ctrl-action">识别伤亡程度</div>
+            <div class="ctrl-desc">血条为绿色（健康）→ 黄色（受损）→ 红色（濒死），及时撤退维修</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           新手提示
+           =================================================== -->
+      <div class="ctrl-section" id="tips">
+        <div class="ctrl-section-header">
+          <span class="ctrl-section-icon">💡</span>
+          <div>
+            <div class="ctrl-section-title">新手战术提示</div>
+            <div class="ctrl-section-sub">BEGINNER TIPS</div>
+          </div>
+        </div>
+
+        <div class="tips-grid-ctrl">
+          <div class="tip-block">
+            <div class="tip-block-num">01</div>
+            <div class="tip-block-title">侦察先行，永远优先</div>
+            <div class="tip-block-desc">
+              在移动主力部队之前，先用侦察单位（狙击组、无人机、侦察车）探明前方地形与敌军位置。
+              被伏击的装甲部队往往损失惨重，而主动侦察的部队才能掌握战场主动权。
+              看不见的敌人比看见的更危险。
+            </div>
+          </div>
+          <div class="tip-block">
+            <div class="tip-block-num">02</div>
+            <div class="tip-block-title">编组是效率的关键</div>
+            <div class="tip-block-desc">
+              建议游戏开始第一件事就是为各兵种分配编组快捷键。
+              一旦战斗打响，你需要在几秒内同时指挥多条战线，
+              没有编组的部队将很快失去控制。
+              建议：1侦察 / 2坦克 / 3步兵战车 / 4防空 / 5炮兵 / 6直升机。
+            </div>
+          </div>
+          <div class="tip-block">
+            <div class="tip-block-num">03</div>
+            <div class="tip-block-title">防空单位不可或缺</div>
+            <div class="tip-block-desc">
+              武装直升机与攻击无人机可以在几十秒内摧毁一整支装甲编队。
+              无论选择何种战术风格，甲板中至少需要1-2个防空单位。
+              铠甲-S1或爱国者的存在将迫使对手三思再三才敢出动空中力量。
+            </div>
+          </div>
+          <div class="tip-block">
+            <div class="tip-block-num">04</div>
+            <div class="tip-block-title">后勤决定战争耐力</div>
+            <div class="tip-block-desc">
+              弹药耗尽的主战坦克和空载的武装直升机毫无战斗力。
+              在甲板中安排至少1-2辆补给车，并规划安全的后勤补给路线。
+              补给车靠近友军单位时会自动开始补给，无需额外操作。
+            </div>
+          </div>
+          <div class="tip-block">
+            <div class="tip-block-num">05</div>
+            <div class="tip-block-title">地形是天然护盾</div>
+            <div class="tip-block-desc">
+              树林、建筑物和山丘可以为单位提供遮蔽，隐藏于树林中的步兵几乎无法被远距离发现。
+              善用地形隐蔽防御部队，或利用地形掩护实施侧翼迂回，
+              是区分新手与老手的核心战术素养。
+            </div>
+          </div>
+          <div class="tip-block">
+            <div class="tip-block-num">06</div>
+            <div class="tip-block-title">使用攻击移动代替普通移动</div>
+            <div class="tip-block-desc">
+              普通移动（右键）的单位在路途中会无视敌人径直前进，可能走进敌方埋伏。
+              使用攻击移动（<kbd>A</kbd> + 右键）可以让单位在前进过程中自动交战，
+              大幅降低被偷袭损失。除快速增援等紧急情况外，建议优先使用攻击移动。
+            </div>
+          </div>
+          <div class="tip-block">
+            <div class="tip-block-num">07</div>
+            <div class="tip-block-title">开火规则决定生存率</div>
+            <div class="tip-block-desc">
+              默认的「自由开火」会让单位主动向远处的敌人开火，暴露自身位置。
+              在侦察或潜伏场景下，将单位设为「仅还击」（<kbd>Q</kbd>切换），
+              单位只在被攻击时才会还手，大幅提升生存能力与伏击效果。
+            </div>
+          </div>
+          <div class="tip-block">
+            <div class="tip-block-num">08</div>
+            <div class="tip-block-title">了解单位的最大射程</div>
+            <div class="tip-block-desc">
+              选中单位后，地图上会显示该单位的武器射程圆圈。
+              利用射程优势可以在敌人攻击你之前就开火。
+              长程反坦克导弹（科尔内特/标枪）可在坦克反制前就完成攻击，
+              这是步兵对抗重型装甲的关键战术。
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-text">© BROKEN ARROW · STEEL BALALAIKA × SLITHERINE · 本站为非官方粉丝页面</div>
+      <ul class="footer-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="factions.html">阵营</a></li>
+        <li><a href="units.html">兵种</a></li>
+        <li><a href="controls.html">操作指南</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* ── controls 页专属样式 ── */
+.ctrl-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+  padding: 16px 20px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+}
+
+.ctrl-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  background: transparent;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: all 0.2s;
+}
+
+.ctrl-nav-btn:hover {
+  color: var(--cyan);
+  border-color: var(--border-bright);
+  background: var(--cyan-glow);
+}
+
+/* 控制区块 */
+.ctrl-section {
+  margin-bottom: 56px;
+  scroll-margin-top: 80px;
+}
+
+.ctrl-section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--cyan);
+  margin-bottom: 20px;
+}
+
+.ctrl-section-icon { font-size: 24px; }
+
+.ctrl-section-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+}
+
+.ctrl-section-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+
+/* 控制卡片网格 */
+.ctrl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.ctrl-grid-2 {
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+}
+
+.ctrl-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.ctrl-card:hover {
+  border-color: var(--border-bright);
+  background: var(--bg-card-hover);
+}
+
+.ctrl-keys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--cyan);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-bottom: 2px solid rgba(0, 212, 255, 0.6);
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.ctrl-keys span.ui-btn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--amber);
+  background: rgba(255,170,0,0.08);
+  border: 1px solid rgba(255,170,0,0.3);
+  padding: 2px 8px;
+}
+
+.ctrl-action {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.ctrl-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 编组提示框 */
+.ctrl-tips-box {
+  margin-top: 16px;
+  padding: 18px 22px;
+  background: rgba(0,212,255,0.04);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+}
+
+.ctrl-tips-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.ctrl-tips-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ctrl-tips-list li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.ctrl-tips-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+}
+
+/* 快捷键表格 */
+.hotkey-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+
+.hotkey-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.hotkey-table thead tr {
+  background: var(--bg-panel);
+  border-bottom: 2px solid var(--border-bright);
+}
+
+.hotkey-table th {
+  padding: 12px 18px;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 1.5px;
+}
+
+.hotkey-table td {
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.hotkey-table td:first-child {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  white-space: nowrap;
+  width: 100px;
+}
+
+.hotkey-table td:nth-child(2) {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 13px;
+  white-space: nowrap;
+  width: 160px;
+}
+
+.hotkey-table tbody tr:hover { background: var(--bg-card-hover); }
+
+/* 新手提示卡片网格 */
+.tips-grid-ctrl {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+
+.tip-block {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  padding: 22px 22px 22px 72px;
+  position: relative;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.tip-block:hover {
+  background: var(--bg-card);
+  border-color: var(--border-bright);
+}
+
+.tip-block-num {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 900;
+  color: rgba(0, 212, 255, 0.2);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.tip-block-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.tip-block-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.tip-block-desc kbd {
+  font-size: 11px;
+}
+</style>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>阵营 — 断箭 BROKEN ARROW</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">BA</div>
+    <span class="nav-logo-text">BROKEN <span>ARROW</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="factions.html" class="active">阵营</a></li>
+    <li><a href="units.html">兵种</a></li>
+    <li><a href="controls.html">操作指南</a></li>
+  </ul>
+  <div class="nav-status">COMBAT SYSTEM ONLINE</div>
+</nav>
+
+<div class="page-content">
+
+  <!-- 页面英雄区 -->
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">首页</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>阵营</span>
+      </div>
+      <div class="section-tag" style="margin-bottom:12px">FACTIONS</div>
+      <h1 class="section-title" style="font-size:clamp(28px,4vw,52px);margin-bottom:12px">两大超级大国阵营</h1>
+      <p class="section-desc">
+        从美国与俄罗斯中选择一方，再从各自的五大专精中搭配两个子兵种，
+        构建独一无二的作战序列。每个专精解锁专属单位池，深刻影响战术风格。
+      </p>
+    </div>
+  </div>
+
+  <!-- 阵营对比简介 -->
+  <section style="padding:56px 0 32px">
+    <div class="container">
+      <div class="faction-compare-bar">
+        <div class="compare-usa">
+          <span class="compare-flag">🇺🇸</span>
+          <span class="compare-label">USA — 精确打击，高科技主导</span>
+        </div>
+        <div class="compare-vs">VS</div>
+        <div class="compare-russia">
+          <span class="compare-flag">🇷🇺</span>
+          <span class="compare-label">俄罗斯 — 大规模钢铁洪流</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 双阵营详情 -->
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="factions-grid">
+
+        <!-- ===== 美国 ===== -->
+        <div class="faction-card usa">
+          <div class="faction-header">
+            <div class="faction-emblem">🇺🇸</div>
+            <div>
+              <div class="faction-name">UNITED STATES</div>
+              <div class="faction-subtitle">美利坚合众国 · 五大专精</div>
+            </div>
+          </div>
+          <div class="faction-body">
+            <p class="faction-desc">
+              美军依托高度信息化的C4ISR体系，以精确打击、快速机动和联合作战为核心理念。
+              M1A2艾布拉姆斯坦克、AH-64阿帕奇直升机与精确制导弹药构成致命的火力三角，
+              各专精间协同效应显著，适合追求精细操作与高爆发火力的指挥官。
+            </p>
+            <ul class="spec-list">
+              <li class="spec-item">
+                <div class="spec-icon">⚓</div>
+                <div class="spec-info">
+                  <div class="spec-name">海军陆战队 Marine Corps</div>
+                  <div class="spec-desc">
+                    两栖突击专家，擅长快速渡海登陆与滩头阵地争夺。配备AAV7两栖突击车与精锐步兵，
+                    在复杂地形中具备极高机动力与攻坚能力，空地协同能力出色。
+                  </div>
+                </div>
+              </li>
+              <li class="spec-item">
+                <div class="spec-icon">🛡</div>
+                <div class="spec-info">
+                  <div class="spec-name">装甲旅 Armored Brigade</div>
+                  <div class="spec-desc">
+                    美军重型装甲核心力量。M1A2 SEP v3 + Trophy主动防护、M3A3布拉德利战车、
+                    M109帕拉丁自行炮与M270多管火箭炮构成强大火力群，适合正面突破与阵地战。
+                  </div>
+                </div>
+              </li>
+              <li class="spec-item">
+                <div class="spec-icon">🪂</div>
+                <div class="spec-info">
+                  <div class="spec-name">空降步兵 Airborne Infantry</div>
+                  <div class="spec-desc">
+                    82/101空降师精锐，通过空中投送迅速控制关键地形。轻装高机动，反坦克与防空能力强，
+                    擅长打乱敌方节奏、切断后勤线，与侦察单位配合形成远程打击网络。
+                  </div>
+                </div>
+              </li>
+              <li class="spec-item">
+                <div class="spec-icon">🚗</div>
+                <div class="spec-info">
+                  <div class="spec-name">斯特赖克骑兵团 Stryker Cavalry</div>
+                  <div class="spec-desc">
+                    以斯特赖克装甲步兵战车为核心的快速反应部队。高速机动性与多功能武装遥控炮塔
+                    （M2重机枪/Mk19/Javelin可选）使其成为早期侦察、快速占点的理想选择。
+                  </div>
+                </div>
+              </li>
+              <li class="spec-item">
+                <div class="spec-icon">🎖</div>
+                <div class="spec-info">
+                  <div class="spec-name">特种作战部队 Special Operations</div>
+                  <div class="spec-desc">
+                    Delta Force、绿色贝雷帽等精英单位。极强的单兵战斗力与渗透能力，
+                    可深入敌后侦察、破坏，搭配无人机与精确打击武器，形成不对称优势。
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ===== 俄罗斯 ===== -->
+        <div class="faction-card russia">
+          <div class="faction-header">
+            <div class="faction-emblem">🇷🇺</div>
+            <div>
+              <div class="faction-name">RUSSIA</div>
+              <div class="faction-subtitle">俄罗斯联邦 · 五大专精</div>
+            </div>
+          </div>
+          <div class="faction-body">
+            <p class="faction-desc">
+              俄军延续苏联大纵深作战传统，以大规模装甲集群、火力压制与快速突贯为核心哲学。
+              T-14阿玛塔、Ka-52鳄鱼直升机与BM-30龙卷风多管火箭炮构成毁灭性的钢铁洪流，
+              适合偏好数量优势与压倒性火力的指挥官。
+            </p>
+            <ul class="spec-list">
+              <li class="spec-item">
+                <div class="spec-icon">🚶</div>
+                <div class="spec-info">
+                  <div class="spec-name">摩托化步兵 Motostrelki</div>
+                  <div class="spec-desc">
+                    俄军骨干步兵力量，依托BMP步兵战车快速机动。步坦协同作战能力强，
+                    反坦克导弹小组与防空队为大规模地面推进提供坚实支撑，价格低廉、数量充足。
+                  </div>
+                </div>
+              </li>
+              <li class="spec-item">
+                <div class="spec-icon">🛡</div>
+                <div class="spec-info">
+                  <div class="spec-name">装甲集团军 Armored Army</div>
+                  <div class="spec-desc">
+                    以T-14阿玛塔为旗舰的重型装甲力量。T-90M、T-80BVM与BMPT终结者
+                    城市战坦克共同构成难以阻挡的装甲洪流，配合Koalitsiya自行炮形成全纵深打击。
+                  </div>
+                </div>
+              </li>
+              <li class="spec-item">
+                <div class="spec-icon">🪂</div>
+                <div class="spec-info">
+                  <div class="spec-name">空降军 VDV</div>
+                  <div class="spec-desc">
+                    俄军王牌快速部署力量，装备BMD空降战车与轻型火炮。
+                    具备强大的空投与快速占领能力，擅长在敌后造成混乱，
+                    搭配Mi-8直升机实现立体突击。
+                  </div>
+                </div>
+              </li>
+              <li class="spec-item">
+                <div class="spec-icon">⚓</div>
+                <div class="spec-info">
+                  <div class="spec-name">海军步兵 Naval Infantry</div>
+                  <div class="spec-desc">
+                    俄罗斯海军陆战队精锐，擅长两栖突击与滨海地带作战。
+                    装备PT-76水陆坦克与专属两栖载具，火力支援由舰炮或直升机提供，
+                    适合水网复杂地形的闪击战术。
+                  </div>
+                </div>
+              </li>
+              <li class="spec-item">
+                <div class="spec-icon">🎖</div>
+                <div class="spec-info">
+                  <div class="spec-name">特种作战部队 Spetsnaz</div>
+                  <div class="spec-desc">
+                    俄罗斯特种部队精英，具备超强侦察、渗透与定点清除能力。
+                    狙击手组、反器材步枪与先进侦察无人机构成情报战核心，
+                    引导炮兵与航空兵实施精确打击。
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /factions-grid -->
+    </div>
+  </section>
+
+  <!-- 专精选择策略提示 -->
+  <section style="padding:48px 0 80px">
+    <div class="container">
+      <div class="section-tag" style="margin-bottom:12px">STRATEGY TIPS</div>
+      <h2 class="section-title" style="margin-bottom:32px">专精搭配策略</h2>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon">⚡</div>
+          <div class="tip-title">攻势打法</div>
+          <div class="tip-desc">
+            <strong>美军：</strong>装甲旅 + 斯特赖克骑兵 — 重甲快速突破，先用斯特赖克探路占点，再以装甲旅跟进扩大战果。<br>
+            <strong>俄军：</strong>装甲集团军 + 摩托化步兵 — 坦克前突，步兵清扫，形成无法阻挡的钢铁洪流。
+          </div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🔍</div>
+          <div class="tip-title">侦察控场</div>
+          <div class="tip-desc">
+            <strong>美军：</strong>特种部队 + 空降步兵 — 特种侦察引导精确打击，空降兵迅速控制关键节点。<br>
+            <strong>俄军：</strong>Spetsnaz + VDV — 特种渗透前出侦察，空降兵切断敌方退路与补给线。
+          </div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🌊</div>
+          <div class="tip-title">两栖作战</div>
+          <div class="tip-desc">
+            <strong>美军：</strong>海军陆战队 + 空降步兵 — 海陆空三维立体登陆，多方向同时施压。<br>
+            <strong>俄军：</strong>海军步兵 + 摩托化步兵 — 滨海突击配合纵深机动，正面与侧翼同步推进。
+          </div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">📋</div>
+          <div class="tip-title">通用建议</div>
+          <div class="tip-desc">
+            无论选择哪种搭配，<strong>侦察单位永远优先</strong>——看不见的敌人比看见的更危险。
+            同时不要忽视后勤单位，前线补给决定战斗持久力。防空单位是保护装甲集群的关键。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-text">© BROKEN ARROW · STEEL BALALAIKA × SLITHERINE · 本站为非官方粉丝页面</div>
+      <ul class="footer-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="factions.html">阵营</a></li>
+        <li><a href="units.html">兵种</a></li>
+    <li><a href="controls.html">操作指南</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+.faction-compare-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 20px 32px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.compare-usa, .compare-russia {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-size: 15px; font-weight: 700;
+}
+.compare-usa { color: #00aaff; }
+.compare-russia { color: #ff5555; }
+.compare-flag { font-size: 28px; }
+.compare-vs {
+  font-family: var(--font-display); font-size: 24px; font-weight: 900;
+  color: var(--text-muted); letter-spacing: 4px;
+}
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.tip-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--cyan);
+  padding: 24px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.tip-card:hover { background: var(--bg-card); border-color: var(--border-bright); }
+.tip-icon { font-size: 28px; margin-bottom: 10px; }
+.tip-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--cyan); margin-bottom: 10px; letter-spacing: 1px; }
+.tip-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+.tip-desc strong { color: var(--text-primary); }
+</style>
+
+</body>
+</html>

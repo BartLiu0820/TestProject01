@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>兵种百科 — 断箭 BROKEN ARROW</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">BA</div>
+    <span class="nav-logo-text">BROKEN <span>ARROW</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="factions.html">阵营</a></li>
+    <li><a href="units.html" class="active">兵种</a></li>
+    <li><a href="controls.html">操作指南</a></li>
+  </ul>
+  <div class="nav-status">COMBAT SYSTEM ONLINE</div>
+</nav>
+
+<div class="page-content">
+
+  <!-- 页面英雄区 -->
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">首页</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>兵种百科</span>
+      </div>
+      <div class="section-tag" style="margin-bottom:12px">UNIT DATABASE</div>
+      <h1 class="section-title" style="font-size:clamp(28px,4vw,52px);margin-bottom:12px">兵种百科全书</h1>
+      <p class="section-desc">
+        收录美国与俄罗斯双方全部七大兵种类别的代表性单位，
+        包含完整装备配件详解。点击单位卡片的「装备配件」可展开查看详细配置。
+      </p>
+    </div>
+  </div>
+
+  <!-- 筛选区 -->
+  <section style="padding:32px 0 0">
+    <div class="container">
+      <div class="filters-section">
+
+        <!-- 阵营筛选 -->
+        <div class="filter-label">— 阵营筛选</div>
+        <div class="filter-bar" style="margin-bottom:20px">
+          <button class="filter-btn faction-btn active" data-faction="all">
+            🌐 全部阵营
+          </button>
+          <button class="filter-btn faction-btn" data-faction="usa">
+            🇺🇸 美国
+          </button>
+          <button class="filter-btn faction-btn" data-faction="russia">
+            🇷🇺 俄罗斯
+          </button>
+        </div>
+
+        <!-- 兵种类别筛选 -->
+        <div class="filter-label">— 兵种类别</div>
+        <div class="filter-bar">
+          <button class="filter-btn" data-cat="all">📋 全部类别</button>
+          <button class="filter-btn" data-cat="侦察">👁 侦察</button>
+          <button class="filter-btn" data-cat="步兵">🪖 步兵</button>
+          <button class="filter-btn" data-cat="战斗载具">🚂 战斗载具</button>
+          <button class="filter-btn" data-cat="支援">🎯 支援</button>
+          <button class="filter-btn" data-cat="后勤">📦 后勤</button>
+          <button class="filter-btn" data-cat="直升机">🚁 直升机</button>
+          <button class="filter-btn" data-cat="空袭">✈ 空袭</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 兵种区块（分类分组） -->
+  <section style="padding:16px 0 80px">
+    <div class="container">
+      <div class="units-count" id="units-count">加载中…</div>
+      <!-- script.js 按分类渲染 cat-section > cat-section-header + units-grid -->
+      <div id="units-grid"></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-text">© BROKEN ARROW · STEEL BALALAIKA × SLITHERINE · 本站为非官方粉丝页面</div>
+      <ul class="footer-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="factions.html">阵营</a></li>
+        <li><a href="units.html">兵种</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- 兵种数据与筛选逻辑 -->
+<script src="script.js"></script>
+</body>
+</html>
