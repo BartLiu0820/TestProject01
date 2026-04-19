@@ -991,22 +991,96 @@ footer {
 .animate-delay-4 { animation-delay: 0.4s; opacity: 0; }
 
 /* ============================================
-   响应式
+   SVG 单位类型图标
    ============================================ */
-@media (max-width: 900px) {
-  .navbar { padding: 0 16px; }
-  .nav-status { display: none; }
-  .container { padding: 0 16px; }
-  .units-grid { grid-template-columns: 1fr; }
-  .hero-stats { gap: 20px; }
+.unit-type-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  flex-shrink: 0;
 }
 
-@media (max-width: 600px) {
-  .hero-actions { flex-direction: column; }
-  .nav-links a { padding: 8px 10px; font-size: 10px; }
+.unit-type-icon svg {
+  width: 100%; height: 100%;
 }
 
-/* 空状态 */
+/* 分类区块标题图标 */
+.cat-section-icon .unit-type-icon {
+  width: 26px; height: 26px;
+}
+
+/* 阵营徽章 — 强化版 */
+.faction-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: 1px solid;
+  border-radius: 0;
+}
+
+.faction-badge.usa {
+  color: #4db8ff;
+  border-color: rgba(77,184,255,0.4);
+  background: rgba(77,184,255,0.08);
+}
+
+.faction-badge.russia {
+  color: #ff7070;
+  border-color: rgba(255,112,112,0.4);
+  background: rgba(255,68,68,0.08);
+}
+
+.faction-badge .flag-bar {
+  display: flex;
+  gap: 1px;
+  width: 14px;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.flag-bar-stripe {
+  flex: 1;
+  height: 100%;
+}
+
+/* ============================================
+   汉堡菜单 (移动端导航)
+   ============================================ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  padding: 8px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%; height: 2px;
+  background: var(--cyan);
+  transition: transform 0.25s, opacity 0.25s;
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============================================
+   空状态
+   ============================================ */
 .empty-state {
   grid-column: 1 / -1;
   text-align: center;
@@ -1016,3 +1090,252 @@ footer {
 
 .empty-state-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.4; }
 .empty-state-text { font-family: var(--font-mono); font-size: 14px; letter-spacing: 1px; }
+
+/* ============================================
+   响应式 — 平板 ≤900px
+   ============================================ */
+@media (max-width: 900px) {
+  .navbar { padding: 0 16px; }
+  .nav-status { display: none; }
+  .container { padding: 0 16px; }
+  .units-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { gap: 20px; }
+  .factions-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   响应式 — 手机 ≤640px
+   ============================================ */
+@media (max-width: 640px) {
+
+  /* 导航：汉堡展开 */
+  .hamburger { display: flex; }
+  .nav-status { display: none; }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(3,6,13,0.98);
+    border-bottom: 1px solid var(--border);
+    z-index: 999;
+    backdrop-filter: blur(16px);
+    padding: 8px 0 16px;
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-links li { width: 100%; }
+
+  .nav-links a {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    clip-path: none;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    justify-content: flex-start;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    background: var(--cyan-glow);
+    border-bottom-color: var(--border);
+  }
+
+  /* 英雄区 */
+  .hero { padding: 48px 0 56px; min-height: auto; }
+  .hero-title { font-size: 42px; }
+  .hero-subtitle { font-size: 13px; letter-spacing: 3px; }
+  .hero-desc { font-size: 15px; }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .stat-num { font-size: 26px; }
+  .hero-actions { flex-direction: column; gap: 12px; }
+  .btn { width: 100%; justify-content: center; clip-path: none; }
+
+  /* 章节 */
+  section { padding: 48px 0; }
+  .section-title { font-size: 24px; }
+  .section-desc { font-size: 15px; }
+
+  /* 特性卡片 */
+  .features-grid { grid-template-columns: 1fr; }
+
+  /* 筛选栏 — 横向滚动 */
+  .filters-section { padding: 14px 16px; }
+  .filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    gap: 6px;
+  }
+  .filter-bar::-webkit-scrollbar { display: none; }
+  .filter-btn {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    font-size: 12px;
+    white-space: nowrap;
+    clip-path: none;
+  }
+
+  /* 兵种网格 */
+  .units-grid { grid-template-columns: 1fr; gap: 12px; }
+
+  /* 兵种分类标题 */
+  .cat-section-header {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 14px;
+    position: relative;
+    top: 0;
+  }
+  .cat-section-title { font-size: 14px; }
+  .cat-section-en { display: none; }
+
+  /* 单位卡片 */
+  .unit-card-header { flex-wrap: wrap; gap: 8px; }
+  .unit-name { font-size: 14px; }
+  .unit-cost { font-size: 18px; }
+
+  /* 配件面板 */
+  .equip-item { flex-direction: column; gap: 6px; }
+  .equip-icon { font-size: 18px; }
+  .equip-name { font-size: 13px; flex-wrap: wrap; }
+  .equip-desc { font-size: 12px; }
+
+  /* 阵营页 */
+  .faction-header { padding: 20px 16px 16px; }
+  .faction-body { padding: 16px; }
+  .faction-name { font-size: 16px; }
+  .spec-item { padding: 10px 12px; }
+  .spec-name { font-size: 14px; }
+  .spec-desc { font-size: 13px; }
+
+  /* 页面英雄 */
+  .page-hero { padding: 48px 0 32px; }
+
+  /* 面包屑 */
+  .breadcrumb { font-size: 12px; }
+
+  /* 底部 */
+  footer { padding: 20px 0; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-text { font-size: 12px; }
+  .footer-links { flex-wrap: wrap; gap: 16px; }
+
+  /* 操作指南页 */
+  .ctrl-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 6px;
+    padding: 12px;
+  }
+  .ctrl-nav::-webkit-scrollbar { display: none; }
+  .ctrl-nav-btn {
+    flex-shrink: 0;
+    font-size: 11px;
+    padding: 7px 12px;
+    clip-path: none;
+    white-space: nowrap;
+  }
+
+  .ctrl-grid { grid-template-columns: 1fr; }
+  .ctrl-grid-2 { grid-template-columns: 1fr; }
+  .ctrl-card { padding: 14px 16px; }
+  .ctrl-keys { flex-wrap: wrap; }
+  .ctrl-action { font-size: 13px; }
+  .ctrl-desc { font-size: 12px; }
+
+  kbd {
+    font-size: 11px;
+    padding: 2px 6px;
+    min-width: 24px;
+  }
+
+  .hotkey-table-wrapper { border: none; }
+  .hotkey-table { font-size: 12px; }
+  .hotkey-table th, .hotkey-table td { padding: 9px 12px; }
+  .hotkey-table td:first-child { width: 80px; }
+  .hotkey-table td:nth-child(2) { width: auto; font-size: 12px; }
+
+  .tips-grid-ctrl { grid-template-columns: 1fr; }
+  .tip-block { padding: 16px 16px 16px 60px; }
+  .tip-block-num { font-size: 22px; left: 14px; top: 18px; }
+  .tip-block-title { font-size: 13px; }
+  .tip-block-desc { font-size: 13px; }
+
+  .ctrl-section-header { padding: 12px 16px; }
+  .ctrl-section-title { font-size: 15px; }
+
+  /* 首页兵种分类卡 */
+  .cat-preview { padding: 20px 12px; }
+  .cat-icon { font-size: 26px; }
+  .cat-name { font-size: 13px; }
+
+  /* 首页阵营预览 */
+  .fp-name { font-size: 18px; }
+  .fp-flag { font-size: 32px; }
+}
+
+/* ============================================
+   响应式 — 小屏手机 ≤390px (iPhone 14 尺寸)
+   ============================================ */
+@media (max-width: 390px) {
+  html { font-size: 105%; }
+  .hero-title { font-size: 36px; }
+  .navbar { height: 56px; }
+  .page-content { padding-top: 56px; }
+  .nav-links { top: 56px; }
+  .unit-card-header { padding: 12px 14px 10px; }
+  .unit-card-body { padding: 12px 14px; }
+}
+
+/* ============================================
+   iOS 安全区域适配
+   ============================================ */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .navbar {
+    padding-left: max(32px, env(safe-area-inset-left));
+    padding-right: max(32px, env(safe-area-inset-right));
+  }
+
+  footer {
+    padding-bottom: max(32px, env(safe-area-inset-bottom));
+  }
+
+  @media (max-width: 640px) {
+    .navbar {
+      padding-left: max(16px, env(safe-area-inset-left));
+      padding-right: max(16px, env(safe-area-inset-right));
+    }
+  }
+}
+
+/* ============================================
+   触摸设备优化
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+  /* 触摸目标最小44px */
+  .filter-btn { min-height: 44px; }
+  .nav-links a { min-height: 48px; }
+  .ctrl-nav-btn { min-height: 40px; }
+  .unit-equip-toggle { min-height: 44px; }
+  .btn { min-height: 48px; }
+
+  /* 移除 hover 动效避免点击残留 */
+  .unit-card:hover { transform: none; box-shadow: none; }
+  .feature-card:hover { background: var(--bg-panel); }
+  .tip-card:hover { background: var(--bg-panel); }
+}

@@ -2,14 +2,145 @@
 // BROKEN ARROW — 兵种数据库 & 筛选逻辑
 // =============================================
 
+/* ── SVG 军事战术图标 (NATO APP-6 风格) ── */
+const SVG_ICONS = {
+
+  // 侦察：双镜头望远镜 + 中心点
+  '侦察': `<svg viewBox="0 0 28 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <circle cx="7.5" cy="14" r="6"/>
+    <circle cx="20.5" cy="14" r="6"/>
+    <path d="M7.5 8V5M20.5 8V5M7.5 5Q14 1.5 20.5 5"/>
+    <line x1="13.5" y1="14" x2="14.5" y2="14" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="7.5" cy="14" r="2" fill="currentColor" stroke="none"/>
+    <circle cx="20.5" cy="14" r="2" fill="currentColor" stroke="none"/>
+  </svg>`,
+
+  // 步兵：交叉步枪（NATO步兵符号）
+  '步兵': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <line x1="4" y1="20" x2="20" y2="4"/>
+    <line x1="20" y1="20" x2="4" y2="4"/>
+    <circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/>
+    <line x1="4" y1="4" x2="7" y2="7"/>
+    <line x1="20" y1="4" x2="17" y2="7"/>
+  </svg>`,
+
+  // 战斗载具：侧视坦克剪影
+  '战斗载具': `<svg viewBox="0 0 32 22" fill="currentColor" stroke="none">
+    <rect x="2" y="12" width="28" height="8" rx="2"/>
+    <rect x="8" y="7" width="16" height="7" rx="1.5"/>
+    <rect x="15" y="2" width="12" height="5" rx="1"/>
+    <rect x="2" y="15" width="4" height="5" rx="1"/>
+    <rect x="26" y="15" width="4" height="5" rx="1"/>
+    <circle cx="6" cy="20" r="2" fill="#000" opacity="0.3"/>
+    <circle cx="26" cy="20" r="2" fill="#000" opacity="0.3"/>
+  </svg>`,
+
+  // 支援：炮击靶心
+  '支援': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <circle cx="12" cy="12" r="9"/>
+    <circle cx="12" cy="12" r="5"/>
+    <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+    <line x1="12" y1="1" x2="12" y2="5"/>
+    <line x1="12" y1="19" x2="12" y2="23"/>
+    <line x1="1" y1="12" x2="5" y2="12"/>
+    <line x1="19" y1="12" x2="23" y2="12"/>
+  </svg>`,
+
+  // 后勤：补给箱 + 加号
+  '后勤': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="9" width="18" height="13" rx="2"/>
+    <path d="M8 9V6Q12 2.5 16 6V9"/>
+    <line x1="12" y1="13" x2="12" y2="18"/>
+    <line x1="9.5" y1="15.5" x2="14.5" y2="15.5"/>
+  </svg>`,
+
+  // 直升机：侧视直升机轮廓
+  '直升机': `<svg viewBox="0 0 32 26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="1" y1="9" x2="31" y2="9" stroke-width="2.5"/>
+    <path d="M11 9 L10 17 Q16 22 22 17 L21 9"/>
+    <line x1="16" y1="17" x2="16" y2="23"/>
+    <line x1="12" y1="23" x2="20" y2="23"/>
+    <circle cx="11" cy="9" r="2" fill="currentColor" stroke="none"/>
+  </svg>`,
+
+  // 空袭：战斗机侧视剪影
+  '空袭': `<svg viewBox="0 0 32 26" fill="currentColor" stroke="none">
+    <path d="M2 17 L14 6 L22 10 L18 14 L24 15 L20 18 L17 22 L13 17 L7 21 Z"/>
+    <path d="M22 10 L30 8 L28 12 L22 12 Z" opacity="0.7"/>
+  </svg>`,
+};
+
+/* ── 兵种配件图标映射（统一 SVG 风格）── */
+const EQUIP_ICONS = {
+  // 武器
+  gun:      `<svg viewBox="0 0 28 14" fill="currentColor"><path d="M2 5h16l2 2h4l1 2H2z"/><rect x="4" y="8" width="3" height="5" rx="1"/><rect x="18" y="6" width="1.5" height="5" rx="0.5"/></svg>`,
+  rocket:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2 C16 2 20 6 20 12 L12 22 L4 12 C4 6 8 2 12 2Z"/><circle cx="12" cy="10" r="2.5" fill="currentColor" stroke="none"/><path d="M8 19 L5 23M16 19 L19 23"/></svg>`,
+  bomb:     `<svg viewBox="0 0 22 24" fill="currentColor"><ellipse cx="11" cy="14" rx="8" ry="9"/><rect x="9" y="2" width="4" height="5" rx="1"/><path d="M13 2 L17 1 L16 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>`,
+  cannon:   `<svg viewBox="0 0 28 16" fill="currentColor"><rect x="2" y="5" width="18" height="6" rx="2"/><rect x="18" y="6" width="8" height="4" rx="1"/><circle cx="5" cy="13" r="3"/><circle cx="13" cy="13" r="3"/></svg>`,
+  // 防护
+  shield:   `<svg viewBox="0 0 22 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2 L20 6 V13 C20 19 11 24 11 24 C11 24 2 19 2 13 V6 Z"/></svg>`,
+  armor:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 L20 5 V12 C20 17 16 21 12 22 C8 21 4 17 4 12 V5 Z"/><path d="M9 11 L11 13 L15 9" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  // 电子/传感器
+  radar:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 12 L20 6"/><path d="M12 3 A9 9 0 0 1 21 12" stroke-dasharray="3 2"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/></svg>`,
+  sensor:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 19 C3 16 3 8 5 5"/><path d="M8 16 C7 14 7 10 8 8"/><path d="M19 19 C21 16 21 8 19 5"/><path d="M16 16 C17 14 17 10 16 8"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg>`,
+  drone:    `<svg viewBox="0 0 28 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="4" y1="10" x2="24" y2="10"/><circle cx="14" cy="10" r="4"/><circle cx="4" cy="10" r="3"/><circle cx="24" cy="10" r="3"/><line x1="10" y1="7" x2="18" y2="13"/><line x1="18" y1="7" x2="10" y2="13"/></svg>`,
+  // 辅助
+  supply:   `<svg viewBox="0 0 24 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V5Q12 2 16 5V8"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9.5" y1="14.5" x2="14.5" y2="14.5"/></svg>`,
+  comms:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 17 C3 10 8 4 12 4 C16 4 21 10 21 17"/><path d="M7 17 C7 12 9 8 12 8 C15 8 17 12 17 17"/><circle cx="12" cy="17" r="2.5" fill="currentColor" stroke="none"/></svg>`,
+  wrench:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>`,
+  // 通用
+  default:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="8"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>`,
+};
+
+/* 配件图标分类规则 */
+function getEquipIcon(equipName, emojiHint) {
+  const n = equipName;
+  if (/导弹|missile|Hellfire|Ataka|LMUR|Kornet|Javelin|TOW|Igla|毒刺|针式|Stinger|AMRAAM|R-77|R-60/i.test(n)) return EQUIP_ICONS.rocket;
+  if (/炸弹|JDAM|KAB|GBU|Mk8|bomb/i.test(n)) return EQUIP_ICONS.bomb;
+  if (/炮|cannon|Paladin|Msta|龙卷风|Smerch|MLRS|火箭炮|榴弹炮/i.test(n)) return EQUIP_ICONS.cannon;
+  if (/步枪|机枪|卡宾|AK|HK|M4|AS Val|VSS|SVD|KSVK|勃朗宁|PKT|NSVT|DShK|GAU|GSh|2A4|2A7|链炮/i.test(n)) return EQUIP_ICONS.gun;
+  if (/装甲|防护|ERA|APS|Trophy|Afganit|Relikt|Kontakt|Shtora|Malachit|贫铀|复合装甲|钛合金/i.test(n)) return EQUIP_ICONS.armor;
+  if (/主动防护|APS|拦截|盾|shield/i.test(n)) return EQUIP_ICONS.shield;
+  if (/雷达|radar|相控阵|MPQ|APG|Longbow|毫米波|N025/i.test(n)) return EQUIP_ICONS.radar;
+  if (/传感器|FLIR|热成像|红外|光电|MTS|TADS|PNVS|AN\/PAS|MMS|瞄准系统|目标指示|激光/i.test(n)) return EQUIP_ICONS.sensor;
+  if (/无人机|UAV|ROVER|数据链|Link|BMS|通讯|电台|终端|数字化|加密/i.test(n)) return EQUIP_ICONS.comms;
+  if (/补给|supply|弹药|燃料|物资|后勤|救援|绞盘|抢修|起重|推土/i.test(n)) return EQUIP_ICONS.supply;
+  if (/无人机|drone|Orlan|Gray Eagle|Reaper|Lancet|游荡/i.test(n)) return EQUIP_ICONS.drone;
+  if (/维修|修复|工具|扳手|维护/i.test(n)) return EQUIP_ICONS.wrench;
+  return EQUIP_ICONS.default;
+}
+
+/* 阵营徽章 HTML */
+function factionBadgeHTML(faction) {
+  if (faction === 'usa') {
+    return `<span class="faction-badge usa">
+      <span class="flag-bar">
+        <span class="flag-bar-stripe" style="background:#B22234"></span>
+        <span class="flag-bar-stripe" style="background:#fff"></span>
+        <span class="flag-bar-stripe" style="background:#B22234"></span>
+        <span class="flag-bar-stripe" style="background:#3C3B6E"></span>
+      </span>
+      USA
+    </span>`;
+  }
+  return `<span class="faction-badge russia">
+    <span class="flag-bar">
+      <span class="flag-bar-stripe" style="background:#fff"></span>
+      <span class="flag-bar-stripe" style="background:#0039A6"></span>
+      <span class="flag-bar-stripe" style="background:#D52B1E"></span>
+    </span>
+    RUS
+  </span>`;
+}
+
 const CATEGORIES = [
-  { id: '侦察',    icon: '👁',  en: 'RECON' },
-  { id: '步兵',    icon: '🪖', en: 'INFANTRY' },
-  { id: '战斗载具', icon: '🚂', en: 'FIGHTING VEHICLES' },
-  { id: '支援',    icon: '🎯', en: 'SUPPORT' },
-  { id: '后勤',    icon: '📦', en: 'LOGISTICS' },
-  { id: '直升机',  icon: '🚁', en: 'HELICOPTER' },
-  { id: '空袭',    icon: '✈',  en: 'AIRSTRIKE' },
+  { id: '侦察',    en: 'RECON' },
+  { id: '步兵',    en: 'INFANTRY' },
+  { id: '战斗载具', en: 'FIGHTING VEHICLES' },
+  { id: '支援',    en: 'SUPPORT' },
+  { id: '后勤',    en: 'LOGISTICS' },
+  { id: '直升机',  en: 'HELICOPTER' },
+  { id: '空袭',    en: 'AIRSTRIKE' },
 ];
 
 const UNITS = [
@@ -900,11 +1031,14 @@ function renderUnits() {
     if (!catUnits.length) return;
 
     const cardsHtml = catUnits.map(u => buildCard(u)).join('');
+    const svgIcon = SVG_ICONS[catId] || '';
 
     html += `
       <div class="cat-section">
         <div class="cat-section-header">
-          <span class="cat-section-icon">${catMeta.icon}</span>
+          <span class="cat-section-icon">
+            <span class="unit-type-icon" style="color:var(--cyan)">${svgIcon}</span>
+          </span>
           <span class="cat-section-title">${catMeta.id}</span>
           <span class="cat-section-en">${catMeta.en}</span>
           <span class="cat-section-count">${catUnits.length} 个单位</span>
@@ -927,19 +1061,15 @@ function renderUnits() {
 }
 
 function buildCard(u) {
-  const factionLabel = u.faction === 'usa' ? '🇺🇸 美国' : '🇷🇺 俄罗斯';
-  const factionBadge = u.faction === 'usa'
-    ? `<span class="badge badge-usa">${factionLabel}</span>`
-    : `<span class="badge badge-russia">${factionLabel}</span>`;
+  const svgIcon = SVG_ICONS[u.category] || '';
 
-  const catIcons = {
-    '侦察': '👁', '步兵': '🪖', '战斗载具': '🚂',
-    '支援': '🎯', '后勤': '📦', '直升机': '🚁', '空袭': '✈'
-  };
-
-  const equipItems = u.equipment.map(e => `
+  const equipItems = u.equipment.map(e => {
+    const iconSvg = getEquipIcon(e.name, e.icon);
+    return `
     <li class="equip-item">
-      <span class="equip-icon">${e.icon}</span>
+      <span class="equip-icon" style="color:var(--cyan);opacity:0.8">
+        <span class="unit-type-icon" style="width:20px;height:20px">${iconSvg}</span>
+      </span>
       <div class="equip-info">
         <div class="equip-name">
           ${e.name}
@@ -947,8 +1077,8 @@ function buildCard(u) {
         </div>
         <div class="equip-desc">${e.desc}</div>
       </div>
-    </li>
-  `).join('');
+    </li>`;
+  }).join('');
 
   return `
     <div class="unit-card ${u.faction}">
@@ -957,8 +1087,11 @@ function buildCard(u) {
           <div class="unit-name">${u.name}</div>
           <div style="font-size:12px;font-family:var(--font-mono);color:var(--text-muted);font-weight:400;margin-bottom:8px">${u.nameEn}</div>
           <div class="unit-badges">
-            <span class="badge badge-category">${catIcons[u.category] || ''} ${u.category}</span>
-            ${factionBadge}
+            <span class="badge badge-category" style="display:inline-flex;align-items:center;gap:5px">
+              <span class="unit-type-icon" style="width:16px;height:16px;color:var(--cyan)">${svgIcon}</span>
+              ${u.category}
+            </span>
+            ${factionBadgeHTML(u.faction)}
           </div>
         </div>
         <div>
