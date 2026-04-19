@@ -5,27 +5,3 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
-      - "443:443"
-    volumes:
-      - certbot-certs:/etc/letsencrypt:ro
-      - certbot-webroot:/var/www/certbot:ro
-    depends_on:
-      - certbot
-
-  certbot:
-    image: certbot/certbot:latest
-    container_name: broken-arrow-certbot
-    volumes:
-      - certbot-certs:/etc/letsencrypt
-      - certbot-webroot:/var/www/certbot
-    # Renew every 12 hours; exits immediately if not due
-    entrypoint: >
-      /bin/sh -c "trap exit TERM;
-        while :; do
-          certbot renew --webroot -w /var/www/certbot --quiet;
-          sleep 12h & wait $${!};
-        done"
-
-volumes:
-  certbot-certs:
-  certbot-webroot:
