@@ -18,6 +18,7 @@
     <li><a href="factions.html" class="active">阵营</a></li>
     <li><a href="units.html">兵种</a></li>
     <li><a href="controls.html">操作指南</a></li>
+    <li><a href="https://store.steampowered.com/app/1604270/Broken_Arrow/" target="_blank" rel="noopener" class="">游戏</a></li>
   </ul>
   <div class="nav-status">COMBAT SYSTEM ONLINE</div>
 </nav>
@@ -47,12 +48,12 @@
     <div class="container">
       <div class="faction-compare-bar">
         <div class="compare-usa">
-          <span class="compare-flag">🇺🇸</span>
+          <span class="compare-flag"><img src="参考资源/BArmory.net _ 机库_files/usa flag.png" alt="USA" class="compare-flag-img"></span>
           <span class="compare-label">USA — 精确打击，高科技主导</span>
         </div>
         <div class="compare-vs">VS</div>
         <div class="compare-russia">
-          <span class="compare-flag">🇷🇺</span>
+          <span class="compare-flag"><img src="参考资源/BArmory.net _ 机库_files/rus flag.png" alt="RUS" class="compare-flag-img"></span>
           <span class="compare-label">俄罗斯 — 大规模钢铁洪流</span>
         </div>
       </div>
@@ -67,7 +68,7 @@
         <!-- ===== 美国 ===== -->
         <div class="faction-card usa">
           <div class="faction-header">
-            <div class="faction-emblem">🇺🇸</div>
+            <div class="faction-emblem"><img src="参考资源/BArmory.net _ 机库_files/usa flag.png" alt="USA" class="emblem-flag-img"></div>
             <div>
               <div class="faction-name">UNITED STATES</div>
               <div class="faction-subtitle">美利坚合众国 · 五大专精</div>
@@ -137,7 +138,7 @@
         <!-- ===== 俄罗斯 ===== -->
         <div class="faction-card russia">
           <div class="faction-header">
-            <div class="faction-emblem">🇷🇺</div>
+            <div class="faction-emblem"><img src="参考资源/BArmory.net _ 机库_files/rus flag.png" alt="RUS" class="emblem-flag-img"></div>
             <div>
               <div class="faction-name">RUSSIA</div>
               <div class="faction-subtitle">俄罗斯联邦 · 五大专精</div>
@@ -286,10 +287,15 @@
 }
 .compare-usa { color: #00aaff; }
 .compare-russia { color: #ff5555; }
-.compare-flag { font-size: 28px; }
+.compare-flag { display: inline-flex; align-items: center; }
+.compare-flag-img { width: 44px; height: 29px; object-fit: cover; border-radius: 2px; box-shadow: 0 1px 6px rgba(0,0,0,0.4); display: block; }
 .compare-vs {
   font-family: var(--font-display); font-size: 24px; font-weight: 900;
   color: var(--text-muted); letter-spacing: 4px;
+}
+@media (max-width: 600px) {
+  .faction-compare-bar { flex-direction: column; gap: 12px; text-align: center; }
+  .compare-usa, .compare-russia { justify-content: center; }
 }
 .tips-grid {
   display: grid;

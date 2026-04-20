@@ -18,6 +18,7 @@
     <li><a href="factions.html">阵营</a></li>
     <li><a href="units.html" class="active">兵种</a></li>
     <li><a href="controls.html">操作指南</a></li>
+    <li><a href="https://store.steampowered.com/app/1604270/Broken_Arrow/" target="_blank" rel="noopener" class="">游戏</a></li>
   </ul>
   <div class="nav-status">COMBAT SYSTEM ONLINE</div>
 </nav>
@@ -36,8 +37,8 @@
       <div class="section-tag" style="margin-bottom:12px">UNIT DATABASE</div>
       <h1 class="section-title" style="font-size:clamp(28px,4vw,52px);margin-bottom:12px">兵种百科全书</h1>
       <p class="section-desc">
-        收录美国与俄罗斯双方全部七大兵种类别的代表性单位，
-        包含完整装备配件详解。点击单位卡片的「装备配件」可展开查看详细配置。
+        收录美国与俄罗斯双方全部354种单位，覆盖七大兵种类别与十大专精，
+        包含完整装备配件详解。可按阵营、类别、专精三维筛选。
       </p>
     </div>
   </div>
@@ -63,8 +64,8 @@
 
         <!-- 兵种类别筛选 -->
         <div class="filter-label">— 兵种类别</div>
-        <div class="filter-bar">
-          <button class="filter-btn" data-cat="all">📋 全部类别</button>
+        <div class="filter-bar" style="margin-bottom:20px">
+          <button class="filter-btn active" data-cat="all">📋 全部类别</button>
           <button class="filter-btn" data-cat="侦察">👁 侦察</button>
           <button class="filter-btn" data-cat="步兵">🪖 步兵</button>
           <button class="filter-btn" data-cat="战斗载具">🚂 战斗载具</button>
@@ -72,6 +73,22 @@
           <button class="filter-btn" data-cat="后勤">📦 后勤</button>
           <button class="filter-btn" data-cat="直升机">🚁 直升机</button>
           <button class="filter-btn" data-cat="空袭">✈ 空袭</button>
+        </div>
+
+        <!-- 专精筛选 -->
+        <div class="filter-label">— 专精筛选</div>
+        <div class="filter-bar" id="spec-filter-bar">
+          <button class="filter-btn spec-btn active" data-spec="all">🎯 全部专精</button>
+          <button class="filter-btn spec-btn" data-spec="marine" data-sfaction="usa">⚓ 海军陆战队</button>
+          <button class="filter-btn spec-btn" data-spec="armor" data-sfaction="usa">🛡 装甲旅</button>
+          <button class="filter-btn spec-btn" data-spec="airborne" data-sfaction="usa">🪂 空降步兵</button>
+          <button class="filter-btn spec-btn" data-spec="stryker" data-sfaction="usa">🚗 斯特赖克骑兵</button>
+          <button class="filter-btn spec-btn" data-spec="socom" data-sfaction="usa">🎖 特种作战</button>
+          <button class="filter-btn spec-btn" data-spec="motor" data-sfaction="russia">🚶 摩托化步兵</button>
+          <button class="filter-btn spec-btn" data-spec="armored" data-sfaction="russia">🛡 装甲集团军</button>
+          <button class="filter-btn spec-btn" data-spec="vdv" data-sfaction="russia">🪂 空降军</button>
+          <button class="filter-btn spec-btn" data-spec="naval" data-sfaction="russia">⚓ 海军步兵</button>
+          <button class="filter-btn spec-btn" data-spec="spetsnaz" data-sfaction="russia">🎖 特种部队</button>
         </div>
       </div>
     </div>

@@ -11,6 +11,9 @@ COPY index.html factions.html units.html controls.html \
      style.css script.js \
      /usr/share/nginx/html/
 
+# Copy unit images from reference resources
+COPY ["参考资源/", "/usr/share/nginx/html/参考资源/"]
+
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]

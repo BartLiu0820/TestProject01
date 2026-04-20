@@ -154,6 +154,17 @@ body::after {
   background: var(--cyan-glow);
 }
 
+.nav-links a.nav-download {
+  color: var(--green);
+  border-color: var(--border-green);
+  background: rgba(0,255,136,0.06);
+}
+.nav-links a.nav-download:hover {
+  color: #fff;
+  background: rgba(0,255,136,0.18);
+  border-color: var(--green);
+}
+
 .nav-status {
   display: flex;
   align-items: center;
@@ -504,10 +515,13 @@ section { padding: 80px 0; }
   width: 56px; height: 56px;
   border: 2px solid var(--faction-color);
   display: flex; align-items: center; justify-content: center;
-  font-size: 26px;
   background: rgba(0,0,0,0.4);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   box-shadow: 0 0 16px var(--faction-glow);
+  overflow: hidden;
+}
+.emblem-flag-img {
+  width: 100%; height: 100%; object-fit: cover;
 }
 
 .faction-name {
@@ -675,7 +689,7 @@ section { padding: 80px 0; }
 .unit-card:hover::before { opacity: 1; }
 
 .unit-card-header {
-  padding: 16px 20px 12px;
+  padding: 12px 16px 10px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -683,7 +697,54 @@ section { padding: 80px 0; }
   border-bottom: 1px solid var(--border);
 }
 
-.unit-title-area {}
+/* ── 兵种图片区 ── */
+.unit-img-wrap {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+.unit-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,212,255,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.unit-img-wrap.usa  { border-color: rgba(0,170,255,0.3); }
+.unit-img-wrap.russia { border-color: rgba(255,68,68,0.3); }
+.unit-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+  padding: 4px;
+}
+.unit-img-svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── 单位名称区（现在靠右有图片）── */
+.unit-title-area {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── 费用区 ── */
+.unit-cost-wrap {
+  flex-shrink: 0;
+  text-align: right;
+}
 
 .unit-name {
   font-family: var(--font-display);
@@ -710,6 +771,45 @@ section { padding: 80px 0; }
 .badge-category { color: var(--cyan); border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.06); }
 .badge-usa      { color: #00aaff; border-color: rgba(0,170,255,0.3); background: rgba(0,170,255,0.06); }
 .badge-russia   { color: #ff6666; border-color: rgba(255,102,102,0.3); background: rgba(255,68,68,0.06); }
+
+.badge-spec          { font-size: 10px; padding: 2px 7px; }
+.badge-spec.general  { color: var(--amber); border-color: rgba(255,170,0,0.35); background: rgba(255,170,0,0.06); }
+.badge-spec.usa      { color: #5bb8ff; border-color: rgba(91,184,255,0.3); background: rgba(91,184,255,0.05); }
+.badge-spec.russia   { color: #ff8888; border-color: rgba(255,136,136,0.3); background: rgba(255,136,136,0.05); }
+
+.unit-spec-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+
+/* ── 分类内专精子标签 ── */
+/* 专精子分组 */
+.spec-subgroup {
+  margin-bottom: 24px;
+}
+.spec-subgroup-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border-left: 3px solid;
+  text-transform: uppercase;
+}
+.spec-subgroup-header.usa {
+  border-color: rgba(77,184,255,0.7);
+  background: rgba(77,184,255,0.05);
+  color: #4db8ff;
+}
+.spec-subgroup-header.russia {
+  border-color: rgba(255,112,112,0.7);
+  background: rgba(255,68,68,0.05);
+  color: #ff7070;
+}
+.spec-subgroup-icon { font-size: 14px; line-height: 1; }
+.spec-subgroup-label { flex: 1; }
+.spec-subgroup-count { font-size: 10px; opacity: 0.65; }
 
 .unit-cost {
   font-family: var(--font-display);
@@ -1036,18 +1136,13 @@ footer {
   background: rgba(255,68,68,0.08);
 }
 
-.faction-badge .flag-bar {
-  display: flex;
-  gap: 1px;
-  width: 14px;
-  height: 10px;
-  overflow: hidden;
+.faction-flag-img {
+  width: 18px;
+  height: 12px;
+  object-fit: cover;
   border-radius: 1px;
-}
-
-.flag-bar-stripe {
-  flex: 1;
-  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* ============================================
@@ -1203,7 +1298,8 @@ footer {
   .cat-section-en { display: none; }
 
   /* 单位卡片 */
-  .unit-card-header { flex-wrap: wrap; gap: 8px; }
+  .unit-card-header { flex-wrap: nowrap; gap: 8px; padding: 10px 12px 8px; }
+  .unit-img-wrap { width: 64px; height: 64px; }
   .unit-name { font-size: 14px; }
   .unit-cost { font-size: 18px; }
 
@@ -1286,7 +1382,7 @@ footer {
 
   /* 首页阵营预览 */
   .fp-name { font-size: 18px; }
-  .fp-flag { font-size: 32px; }
+  .fp-flag-img { width: 56px; height: 37px; }
 }
 
 /* ============================================

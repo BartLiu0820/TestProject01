@@ -19,6 +19,7 @@
     <li><a href="factions.html">阵营</a></li>
     <li><a href="units.html">兵种</a></li>
     <li><a href="controls.html">操作指南</a></li>
+    <li><a href="https://store.steampowered.com/app/1604270/Broken_Arrow/" target="_blank" rel="noopener" class="">游戏</a></li>
   </ul>
   <div class="nav-status">COMBAT SYSTEM ONLINE</div>
 </nav>
@@ -186,7 +187,7 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
         <a href="factions.html" style="text-decoration:none;">
           <div class="faction-preview usa-preview">
-            <div class="fp-flag">🇺🇸</div>
+            <div class="fp-flag"><img src="参考资源/BArmory.net _ 机库_files/usa flag.png" alt="USA" class="fp-flag-img"></div>
             <div class="fp-name">美利坚合众国</div>
             <div class="fp-sub">UNITED STATES OF AMERICA</div>
             <div class="fp-specs">海军陆战队 · 装甲旅 · 空降步兵 · 斯特赖克骑兵 · 特种部队</div>
@@ -195,7 +196,7 @@
         </a>
         <a href="factions.html" style="text-decoration:none;">
           <div class="faction-preview russia-preview">
-            <div class="fp-flag">🇷🇺</div>
+            <div class="fp-flag"><img src="参考资源/BArmory.net _ 机库_files/rus flag.png" alt="RUS" class="fp-flag-img"></div>
             <div class="fp-name">俄罗斯联邦</div>
             <div class="fp-sub">RUSSIAN FEDERATION</div>
             <div class="fp-specs">摩托化步兵 · 装甲集团军 · 空降军 · 海军步兵 · 特种作战部队</div>
@@ -255,7 +256,8 @@
 }
 .faction-preview:hover { border-color: var(--border-bright); }
 
-.fp-flag { font-size: 40px; margin-bottom: 12px; }
+.fp-flag { margin-bottom: 12px; }
+.fp-flag-img { width: 72px; height: 48px; object-fit: cover; display: block; border-radius: 2px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
 .fp-name { font-family: var(--font-display); font-size: 22px; font-weight: 900; color: var(--text-primary); margin-bottom: 4px; }
 .fp-sub  { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); letter-spacing: 2px; margin-bottom: 16px; }
 .fp-specs { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; }
